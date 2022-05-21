@@ -28,7 +28,7 @@ public class PersonalAccountTest {
         userOperations = new UserOperations();
         userData = userOperations.register();
         mainPage = open(MainPage.MAIN_URL, MainPage.class);
-        Assert.assertTrue("Страница 'Соберите бургер' не открылась", mainPage.checkVisibleTitleAssembleBurger());
+        mainPage.getTitleAssembleBurger().shouldBe(Condition.visible);
         mainPage.clickLinkPersonalAccount();
         LoginPage loginPage = page(LoginPage.class);
         Assert.assertTrue("Страница 'Вход' не открылась", loginPage.checkVisibleTitleLogin());
@@ -37,7 +37,7 @@ public class PersonalAccountTest {
         loginPage.clickButtonEnter();
 
         MainPage mainPage = page(MainPage.class);
-        Assert.assertTrue("Страница 'Соберите бургер' авторизованного пользователя не открылась", mainPage.checkVisibleButtonPlaceOrder());
+        mainPage.getButtonPlaceOrder().shouldBe(Condition.visible);
     }
 
     @After
@@ -61,8 +61,7 @@ public class PersonalAccountTest {
         mainPage.clickLinkPersonalAccount();
         Assert.assertTrue("Страницы личного кабинета не открыта", $(byXpath("//*[contains(@value, '" + userData.get("name") + "')]")).hover().is(Condition.visible));
         mainPage.clickLinkBuilder();
-        Assert.assertTrue("Страница 'Соберите бургер' авторизованного пользователя не открылась", mainPage.checkVisibleButtonPlaceOrder());
-    }
+        mainPage.getButtonPlaceOrder().shouldBe(Condition.visible);    }
 
     @Test
     @DisplayName("Switching from your personal account to the constructor by clicking on the logo")
@@ -71,8 +70,7 @@ public class PersonalAccountTest {
         mainPage.clickLinkPersonalAccount();
         Assert.assertTrue("Страницы личного кабинета не открыта", $(byXpath("//*[contains(@value, '" + userData.get("name") + "')]")).hover().is(Condition.visible));
         mainPage.clickLinkLogo();
-        Assert.assertTrue("Страница 'Соберите бургер' авторизованного пользователя не открылась", mainPage.checkVisibleButtonPlaceOrder());
-    }
+        mainPage.getButtonPlaceOrder().shouldBe(Condition.visible);    }
 
     @Test
     @DisplayName("Log out of your account")

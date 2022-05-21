@@ -1,4 +1,5 @@
 import com.UserOperations;
+import com.codeborne.selenide.Condition;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -30,7 +31,7 @@ public class RegistrationNewUserTest {
     @Description("Успешная авторизация пользователя")
     public void successfulUserAuthorizationTest() {
         mainPage = open(MainPage.MAIN_URL, MainPage.class);
-        Assert.assertTrue("Страница 'Соберите бургер' не открылась", mainPage.checkVisibleTitleAssembleBurger());
+        mainPage.getTitleAssembleBurger().shouldBe(Condition.visible);
         mainPage.clickLinkPersonalAccount();
 
         LoginPage loginPage = page(LoginPage.class);
@@ -51,15 +52,14 @@ public class RegistrationNewUserTest {
         loginPage.setFieldPassword(password);
         loginPage.clickButtonEnter();
 
-        Assert.assertTrue("Страница 'Соберите бургер' авторизованного пользователя не открылась", mainPage.checkVisibleButtonPlaceOrder());
-    }
+        mainPage.getButtonPlaceOrder().shouldBe(Condition.visible);    }
 
     @Test
     @DisplayName("Entering an incorrect password during registration")
     @Description("Ввод не корректного пароля при регистрации")
     public void enteringIncorrectPasswordDuringRegistrationTest() {
         mainPage = open(MainPage.MAIN_URL, MainPage.class);
-        Assert.assertTrue("Страница 'Соберите бургер' не открылась", mainPage.checkVisibleTitleAssembleBurger());
+        mainPage.getTitleAssembleBurger().shouldBe(Condition.visible);
         mainPage.clickButtonLoginAccount();
 
         LoginPage loginPage = page(LoginPage.class);

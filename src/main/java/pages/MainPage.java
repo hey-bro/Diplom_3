@@ -36,12 +36,6 @@ public class MainPage extends NavBarPage{
     @FindBy(how = How.XPATH, using = "//h2[contains(text(), 'Начинки')]")
     private SelenideElement labelFilling;
 
-
-    @Step ("Проверяем виден ли заголовок 'Соберите бургер'")
-    public boolean checkVisibleTitleAssembleBurger(){
-        return titleAssembleBurger.hover().is(Condition.visible);
-    }
-
     @Step("Нажатие кнопки 'Войти в аккаунт'")
     public void clickButtonLoginAccount(){
         buttonLoginAccount.click();
@@ -50,11 +44,6 @@ public class MainPage extends NavBarPage{
     @Step("Нажатие кнопки 'Оформить заказ'")
     public void clickButtonPlaceOrder(){
         buttonPlaceOrder.click();
-    }
-
-    @Step ("Проверяем видна ли кнопка 'Оформить заказ'")
-    public boolean checkVisibleButtonPlaceOrder(){
-        return buttonPlaceOrder.hover().is(Condition.visible);
     }
 
     @Step("Нажатие кнопки 'Булки'")
@@ -70,21 +59,6 @@ public class MainPage extends NavBarPage{
     @Step("Нажатие кнопки 'Начинки'")
     public void clickButtonFilling(){
         buttonFilling.click();
-    }
-
-    @Step ("Проверяем отображается ли в меню категория 'Булки'")
-    public boolean checkVisibleLabelBun(){
-        return labelBun.hover().is(Condition.visible);
-    }
-
-    @Step ("Проверяем отображается ли в меню категория 'Соусы'")
-    public boolean checkVisibleLabelSauce(){
-        return labelSauce.hover().is(Condition.visible);
-    }
-
-    @Step ("Проверяем отображается ли в меню категория 'Начинки'")
-    public boolean checkVisibleLabelFilling(){
-        return labelFilling.hover().is(Condition.visible);
     }
 
     public SelenideElement getTitleAssembleBurger() {

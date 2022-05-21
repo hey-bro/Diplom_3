@@ -24,4 +24,8 @@ public class ForgotPasswordPage extends NavBarPage {
     public void clickButtonLogin(){
         linkLogin.click();
     }
+
+    public SelenideElement getTitleForgotPassword() {
+        return titleForgotPassword;
+    }
 }
