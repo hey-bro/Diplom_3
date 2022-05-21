@@ -11,7 +11,7 @@ public class BuilderTest {
     MainPage mainPage;
 
     @Before
-    @DisplayName("Открыть браузер")
+    @DisplayName("Открыть вкладку браузера")
     public void setUp() {
         mainPage = open(MainPage.MAIN_URL, MainPage.class);
     }
