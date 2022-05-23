@@ -65,6 +65,21 @@ public class MainPage extends NavBarPage{
         return titleAssembleBurger;
     }
 
+    public boolean assertChooseBunButton() {
+        String divClass = buttonBun.getAttribute("class");
+        return divClass.contains("tab_tab_type_current__2BEPc");
+    }
+
+    public boolean assertChooseSauceButton() {
+        String divClass = buttonSauce.getAttribute("class");
+        return divClass.contains("tab_tab_type_current__2BEPc");
+    }
+
+    public boolean assertChooseFillingButton() {
+        String divClass = buttonFilling.getAttribute("class");
+        return divClass.contains("tab_tab_type_current__2BEPc");
+    }
+
     public SelenideElement getButtonLoginAccount() {
         return buttonLoginAccount;
     }
