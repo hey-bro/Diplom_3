@@ -1,0 +1,11 @@
+pages/NavBarPage.class
+pages/AccountProfilePage.class
+pages/ForgotPasswordPage.class
+com/model/UserRegisterResponse.class
+com/model/Tokens.class
+com/Base.class
+pages/RegisterPage.class
+com/UserOperations.class
+pages/LoginPage.class
+pages/MainPage.class
+com/model/User.class
